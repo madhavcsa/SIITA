@@ -10,7 +10,6 @@ For queries and other related issues, please contact Madhav Nimishakavi <madhav@
 
 
 ## Installation:
--------------
 
 1) Run run_me_first.m (needed every session).
 2) Run test_Ribeira.m. 
