@@ -1,4 +1,4 @@
-# SideInfo_ITA
+# SIITA
 Code Title: " Side Information infused Incremental Analysis"
 
 (c) 2017-2018 Madhav Nimishakavi <madhav@iisc.ac.in>, Bamdev Mishra <bamdevm@gmail.com>, Manish Gupta <manishg@gmail.com> and Partha Talukdar <ppt@iisc.ac.in>.
@@ -12,7 +12,7 @@ For queries and other related issues, please contact Madhav Nimishakavi <madhav@
 ## Installation:
 
 1) Run run_me_first.m (needed every session).
-2) Run test_Ribeira.m. 
+2) Run test_YELP.m. 
 
 The proposed files are under the folder 'proposed'.
 
