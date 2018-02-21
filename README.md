@@ -12,4 +12,9 @@ For queries and other related issues, please contact Madhav Nimishakavi <madhav@
 ## Installation:
 -------------
 
- 
+1) Run run_me_first.m (needed every session).
+2) Run test_Ribeira.m. 
+
+The proposed files are under the folder 'proposed'.
+
+- Tensor Toolbox is downloaded from here http://www.sandia.gov/~tgkolda/TensorToolbox/index-2.5.html.
