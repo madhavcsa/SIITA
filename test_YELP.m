@@ -44,7 +44,7 @@ test_data.vals = Y_test(:,4) ;%- t_mean;
 %% SIITA
 clear opts;
 opts.r = [3 3 3];
-opts.maxepochs = 20;
+opts.maxepochs = 1;
 opts.p = 0.1;
 opts.lambda_1 = 0;
 opts.lambda_2 = 0;
@@ -52,8 +52,9 @@ opts.lambda_3 = 0;
 opts.lambda_g = 0;
 opts.gamma = 1e-4; % Step size parameter
 opts.alpha_step = 0.995;
-% opts.batch = 1;  %% Set this to 1 for MAST mode
+opts.batch = 1;  %% Set this to 1 for MAST mode
 % opts.computeAUC = 1; %% Set this to 1 for Computing AUC
+opts.K = 10; % inner iterations
 
 sideopts.A = A_si;
 sideopts.A_cols = m1;

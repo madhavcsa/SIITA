@@ -43,6 +43,11 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
     if ~isfield(opts, 'alpha_step'); opts.alpha_step = 0.9; end
     if ~isfield(opts, 'computeAUC'); opts.computeAUC = false; end
     
+    f ~isfield(opts, 'K')
+        K = 5; 
+    else
+        K = opts.K;
+    end
     
     
     if isfield(sideopts, 'A')
@@ -154,7 +159,7 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
             end
             
             batch_time = tic();
-            vars = mast_si(subs_b, vals_b, vars, Y_b, omega_b, r, short_idx1, short_idx2, short_idx3, gamma, sideopts_batch, regopts);
+            vars = mast_si(subs_b, vals_b, vars, Y_b, omega_b, r, short_idx1, short_idx2, short_idx3, gamma, sideopts_batch, regopts, K);
             epoch_batch_times = [epoch_batch_times; toc(batch_time)];
             
             % Get batch wise test_rmse if option is set
@@ -213,7 +218,7 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
             train_auc = [train_auc; mycomputeAUC(train_preds, vals )];
             test_preds = compute_preds(X, test_data);
             test_auc = [test_auc; mycomputeAUC(test_preds, test_data.vals )];
-           fprintf('[Epoch %d] TrainRMSE %e, TestRMSE %e, TrainAUC %e, TestAUC %e\n', myepoch, train_error(end), test_error(end), train_auc(end), test_auc(end));
+           fprintf('[Epoch %d] Train Error %e, Test Error %e, TrainAUC %e, TestAUC %e\n', myepoch, train_error(end), test_error(end), train_auc(end), test_auc(end));
         else
            fprintf('[Epoch %d] Train Error %e, Test Error %e\n', myepoch, train_error(end),test_error(end));
             
