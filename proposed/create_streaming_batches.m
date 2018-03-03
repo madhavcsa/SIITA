@@ -12,7 +12,7 @@ function[batches] = create_streaming_batches(subs, vals, n1, n2, n3)
     subs_vals = [subs vals];    
     
     for slice = 1:n3
-        idx = find(slice-1 < subs_vals(:,3) <= slice);
+        idx = find(subs_vals(:,3) <= slice & subs_vals(:,3) > slice-1);
         batch = subs_vals(idx(:),:);
         
         if(size(batch,1) > 0)

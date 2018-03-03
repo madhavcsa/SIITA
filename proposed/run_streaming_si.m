@@ -43,7 +43,7 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
     if ~isfield(opts, 'alpha_step'); opts.alpha_step = 0.9; end
     if ~isfield(opts, 'computeAUC'); opts.computeAUC = false; end
     
-    f ~isfield(opts, 'K')
+    if ~isfield(opts, 'K')
         K = 5; 
     else
         K = opts.K;

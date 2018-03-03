@@ -7,7 +7,7 @@ function [vars] = mast_si(subs, vals, vars, Y_b, omega, r, short_idx1, short_idx
     lambda_3 = 0.1;
     lambda_g = 0.1;
     
-    
+    mu = 1;
     
     if isfield(regopts, 'lambda')
         lambda_1 = regopts.lambda_1;
@@ -46,10 +46,10 @@ function [vars] = mast_si(subs, vals, vars, Y_b, omega, r, short_idx1, short_idx
             grad_U3 = - C_t' * R3 * kron(BU2, AU1) * G3' + 2*lambda_3 * U3;
             grad_G  = - double(ttensor(R, {AU1', BU2', CU3'})) + 2*lambda_g * double(G);
 
-            vars.U1 = U1 - gamma * grad_U1;
-            vars.U2 = U2 - gamma * grad_U2;
-            vars.U3 = U3 - gamma * grad_U3;
-            vars.G  = tensor(double(G)  - gamma * grad_G);
+            vars.U1 = mu * U1 - gamma * grad_U1;
+            vars.U2 = mu * U2 - gamma * grad_U2;
+            vars.U3 = mu * U3 - gamma * grad_U3;
+            vars.G  = tensor(mu * double(G)  - gamma * grad_G);
 
         end
     end
