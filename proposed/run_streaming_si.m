@@ -66,7 +66,7 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
     end
     
     batch_wise = 0;
-    if isfield(opts, 'batch'); batch_wise = 1; end
+    if isfield(opts, 'batch') && opts.batch; batch_wise = 1; end
     
     %batches = create_batches(subs, vals, n1, n2, n3, p);
     
