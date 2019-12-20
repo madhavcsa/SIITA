@@ -88,18 +88,21 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
     % Initialize the Variables
     if A_cols > 0
         vars.U1 = rand(A_cols, r(1));
+        A_mat = sparse(A(:,1), A(:,2), A(:,3));
     else
         vars.U1 = [];
     end
     
     if B_cols > 0
         vars.U2 = rand(B_cols, r(2));
+        B_mat = sparse(B(:,1), B(:,2), B(:,3));
     else
         vars.U2 = [];
     end
     
     if C_cols > 0
         vars.U3 = rand(C_cols, r(3));
+        C_mat = sparse(C(:,1), C(:,2), C(:,3));
     else
         vars.U3 = [];
     end
@@ -179,21 +182,18 @@ function [X, train_rmse, test_rmse, batch_test_rmse, time_info, batch_time_info,
         
         % Test per epoch
         if A_cols > 0
-            A_mat = sparse(A(:,1), A(:,2), A(:,3));
             X.U1 = A_mat * vars.U1;
         else
             X.U1 = vars.U1;
         end
         
         if B_cols > 0
-            B_mat = sparse(B(:,1), B(:,2), B(:,3));
             X.U2 = B_mat * vars.U2;
         else
             X.U2 = vars.U2;
         end
         
         if C_cols > 0
-            C_mat = sparse(C(:,1), C(:,2), C(:,3));
             X.U3 = C_mat * vars.U3;
         else
             X.U3 = vars.U3;
