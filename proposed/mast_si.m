@@ -9,7 +9,7 @@ function [vars] = mast_si(subs, vals, vars, Y_b, omega, r, short_idx1, short_idx
     
     mu = 1;
     
-    if isfield(regopts, 'lambda')
+    if isfield(regopts, 'lambda_1')
         lambda_1 = regopts.lambda_1;
         lambda_2 = regopts.lambda_2;
         lambda_3 = regopts.lambda_3;
